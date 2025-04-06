@@ -1,0 +1,189 @@
+
+# #Neechey is code ko step-by-step Roman Urdu mein explain kia gaya hai gpt se explaination:
+
+# 1. **import random**  
+#    - Yeh line Python ka **random** module import karti hai, jo randomly koi cheez select karne ke liye functions provide karta hai. Is case mein, yeh game ke liye random word chun'nay mein madad karta hai.
+
+# 2. **HANGMAN_STAGES = [ ... ]**  
+#    - Yeh list alag alag stages ke hangman ke ASCII art ko rakhti hai.  
+#    - **Stage 0:** Jab koi galat guess nahin hota, sirf basic structure dikhata hai.  
+#    - **Stage 1 se Stage 5:** Har stage mein, ek na ek hissa (jaise ke sir, baazu, pair waghera) add hota jata hai jab player galat guess karta hai.  
+#    - **Stage 6:** Jab 6 galat guesses ho jate hain, poora hangman dikh jata hai jo game over ka signal hota hai.
+
+# 3. **WORDS = ["PYTHON", "PROGRAMMING", "COMPUTER", "SCIENCE", "ALGORITHM"]**  
+#    - Yeh list game ke liye available words rakhti hai. Game inhi words mein se randomly koi ek choose karta hai.
+
+# 4. **def main():**  
+#    - Yeh function game ka main logic contain karta hai. Is function ke andar game shuru hota hai aur chalti rehti hai jab tak game win ya lose na ho jaye.
+
+# 5. **selected_word = random.choice(WORDS).upper()**  
+#    - Is line mein, WORDS list se randomly ek word choose hota hai.  
+#    - `.upper()` se word ko uppercase mein convert kar diya jata hai, taake comparisons consistent rahein.
+
+# 6. **unique_letters = set(selected_word)**  
+#    - Yeh set banata hai jisme selected word ke sirf unique (mukhtalif) letters hotay hain.  
+#    - Is se pata chalta hai ke player ko kitnay mukhtalif letters guess karne hain.
+
+# 7. **guessed_letters = set()**  
+#    - Yeh empty set initialize hota hai jo player ke guess kiye hue letters ko store karega.
+
+# 8. **max_incorrect = 6**  
+#    - Yeh variable maximum allowed galat guesses ko define karta hai, jo is game mein 6 hai.
+
+# 9. **incorrect_count = 0**  
+#    - Yeh variable game ke dauran kitni dafa galat guess hua hai, usko track karta hai. Shuru mein iski value 0 hoti hai.
+
+# 10. **while incorrect_count < max_incorrect and not unique_letters.issubset(guessed_letters):**  
+#     - Yeh game loop hai jo tab tak chalti rahegi jab tak player ke galat guesses 6 se kam hain **(incorrect_count < max_incorrect)**  
+#     - Aur tab tak chalti rahegi jab tak player ne saare unique letters guess nahin kar liye **(not unique_letters.issubset(guessed_letters))**.
+
+# 11. **print(HANGMAN_STAGES[incorrect_count])**  
+#     - Yeh current hangman ka stage print karta hai, jo incorrect_count ke hisaab se update hota hai. Matlab jitne galat guesses, utna aage ka stage dikhayega.
+
+# 12. **display_word = " ".join([letter if letter in guessed_letters else "_" for letter in selected_word])**  
+#     - Yeh line selected word ka display version banati hai:  
+#       - Agar koi letter already guess ho chuka hai to woh dikhaya jata hai.  
+#       - Agar guess nahin hua to underscore ("_") dikhaya jata hai.  
+#       - Letters ko space se separate kia jata hai.
+
+# 13. **print(f"\nCurrent word: {display_word}")**  
+#     - Yeh current state of word ko print karta hai jahan guessed letters dikh rahe hote hain aur baaki letters underscores se chhupe hote hain.
+
+# 14. **print(f"Guessed letters: {' '.join(sorted(guessed_letters))}\n")**  
+#     - Yeh player ke ab tak guess kiye hue letters ko alphabetically sorted order mein display karta hai.
+
+# 15. **while True: (Input validation loop)**  
+#     - Yeh inner loop tab tak chalta hai jab tak player se valid input nahin milta.  
+#     - Iska maksad yeh ensure karna hai ke player sirf ek single alphabetic letter enter kare.
+
+# 16. **guess = input("Guess a letter: ").upper()**  
+#     - Yeh player se input leta hai aur usko uppercase mein convert karta hai taake consistency bani rahe.
+
+# 17. **if len(guess) == 1 and guess.isalpha():**  
+#     - Yeh check karta hai ke input sirf aik letter hai aur alphabetic hai.  
+#     - Agar valid hai, to further check karta hai ke letter already guess na ho chuka ho.
+
+# 18. **if guess in guessed_letters: print("You already guessed that letter!")**  
+#     - Agar player ne woh letter pehle se guess kiya hai, to yeh message print hota hai aur input phir se maanga jata hai.
+
+# 19. **guessed_letters.add(guess)**  
+#     - Jab valid aur naya guess mil jata hai, usko guessed_letters set mein add kar diya jata hai.
+
+# 20. **if guess in selected_word: print("Correct guess!")**  
+#     - Yeh check karta hai ke guess kiya hua letter selected_word mein hai ya nahi.  
+#     - Agar hai, to "Correct guess!" message print hota hai.
+
+# 21. **else: print("Incorrect guess!") and incorrect_count += 1**  
+#     - Agar guess selected_word mein nahin hota, to "Incorrect guess!" message print hota hai aur incorrect_count mein 1 ka izafa hota hai.
+
+# 22. **Final result check (After loop ends):**  
+#     - Jab loop se bahar aata hai, iska matlab player ne ya to game jeet liya hai ya lose.
+#     - **if unique_letters.issubset(guessed_letters):**  
+#       - Agar player ne saare unique letters guess kar liye hain, to jeet ka message print hota hai.
+#     - **else:**  
+#       - Agar incorrect_count maximum limit tak pohanch gaya, to final hangman stage print hota hai aur game over ka message dikhaya jata hai saath hi sahi word bhi bata diya jata hai.
+
+# 23. **if __name__ == "__main__": main()**  
+#     - Yeh standard Python idiom hai jo ensure karta hai ke agar script directly run ki jaye (na ke import karke), to main() function execute ho aur game shuru ho jaye.
+
+# Is tarah se yeh code aik simple hangman game ka pura flow manage karta hai, jahan user se input leta hai, uske guesses ko validate karta hai, aur game ke progress ko update karta hai, jab tak game complete na ho jaye.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# explain full  code in roman urdu and deepseek
+# 1. **import random**  
+#    Yeh Python ka random module import karta hai jo humaray word list se random lafz chun'nay main madad karta hai.
+
+# 2. **HANGMAN_STAGES**  
+#    Yeh aik list hai jis main ASCII art forms hain jo hangman ke mukhtalif stages dikhate hain. Har stage incorrect guess ke saath update hoti hai.
+
+# 3. **WORDS**  
+#    Yeh list un lafzon par mushtamil hai jo game ke liye randomly choose kiye ja sakte hain, taake player unhain guess kare.
+
+# 4. **def main():**  
+#    Yeh main function hai jisme puray game ka logic likha gaya hai. Yeh game ko start aur control karta hai.
+
+# 5. **selected_word = random.choice(WORDS).upper()**  
+#    Is line main, WORDS list se aik random word choose hota hai aur usko uppercase main convert kar diya jata hai, taake consistency rahe jab letters compare kiye jain.
+
+# 6. **unique_letters = set(selected_word)**  
+#    Yeh aik set banata hai jisme sirf unique (alag) letters hote hain jo selected word main maujood hain. Is se pata chalta hai ke kitnay alag letters guess karne hain.
+
+# 7. **guessed_letters = set()**  
+#    Yeh khaali set initialize karta hai jisme player ke guess kiye hue letters ko store kia jayega.
+
+# 8. **max_incorrect = 6**  
+#    Yeh maximum number of galat guesses set karta hai, jo traditional hangman rules ke mutabiq 6 hotay hain.
+
+# 9. **incorrect_count = 0**  
+#    Yeh counter initialize karta hai jo track karega kitni dafa player ne galat guess kia hai.
+
+# 10. **while loop**  
+#     Yeh game loop hai jo chalti rahegi jab tak player ne saare letters guess nahi kar liye ya phir incorrect guesses ki limit cross na ho jaye.
+
+# 11. **print(HANGMAN_STAGES[incorrect_count])**  
+#     Is se current hangman ka stage display hota hai, jo incorrect_count ke hisaab se change hota hai.
+
+# 12. **display_word creation**  
+#     Yeh string banata hai jisme wo letters dikhaye jate hain jo player ne sahi guess kie hain aur baqi letters ko underscores (_) se chhupaya jata hai.
+
+# 13. **Input validation loop**  
+#     Yeh loop ensure karta hai ke player sirf aik valid, single letter enter kare aur woh letter pehle se guess na ho chuka ho.
+
+# 14. **guessed_letters.add(guess)**  
+#     Jab player se valid guess mil jata hai, us letter ko guessed_letters set main add kar diya jata hai.
+
+# 15. **Guess evaluation**  
+#     Yeh check karta hai ke guessed letter selected word main hai ya nahi. Agar letter nahi hai to incorrect_count barh jata hai.
+
+# 16. **Final result check**  
+#     Loop ke khatam hone ke baad, code check karta hai ke player ne saare unique letters guess kar liye hain (jeet) ya incorrect guesses limit cross kar li hai (haar). Phir accordingly message display hota hai.
+
+# 17. **if __name__ == "__main__":**  
+#     Yeh standard Python idiom hai jo ensure karta hai ke agar script directly run ki jaye (import na ho), tabhi main() function execute ho.
+
+# Is tarah se, code step-by-step game ko manage karta hai aur player ke input ke through game ka progress dikhata hai.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
