@@ -5,4 +5,6 @@ This is thi 10 python Assignments <br/>
 4th rock papar scissor game in this game you play with computer  <br/>
 5th hangman project computer generate random value you guess for the letter  <br/>
 6th count down timer after finsh time print time up <br/>
+7th random password suggestion generator <br/>
+8th BMI calculator with streamlit
 7/4/25
